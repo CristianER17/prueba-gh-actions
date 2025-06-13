@@ -13,11 +13,9 @@ jobs:
     steps:
       - name: Instalar dependencias
         run: npm install
-        working-directory: './prueba'
 
       - name: Ejecutar ESlint
         run: npx eslint '**/*.js'
-        working-directory: './prueba'
 
       - name: Revisar formato con Prettier
         run: npx prettier --check
