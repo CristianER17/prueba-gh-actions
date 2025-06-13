@@ -11,8 +11,13 @@ jobs:
             node-version: [16, 18, 20]
 
     steps:
+      - name: Instalar dependencias
+        run: npm install
+        working-directory: './prueba'
+
       - name: Ejecutar ESlint
         run: npx eslint '**/*.js'
+        working-directory: './prueba'
 
       - name: Revisar formato con Prettier
         run: npx prettier --check
@@ -24,9 +29,6 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node-version }}
-
-      - name: Instalar dependencias
-        run: npm install
 
       - name: Ejecutar pruebas
         run: npm test
