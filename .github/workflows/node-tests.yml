@@ -12,7 +12,7 @@ jobs:
 
     steps:
       - name: Ejecutar ESlint
-        run: npx eslint ./prueba
+        run: npx eslint '**/*.js'
 
       - name: Revisar formato con Prettier
         run: npx prettier --check
