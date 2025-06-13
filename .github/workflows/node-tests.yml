@@ -11,9 +11,6 @@ jobs:
             node-version: [16, 18, 20]
 
     steps:
-      - name: Instalar dependencias
-        run: npm install
-
       - name: Ejecutar ESlint
         run: npx eslint '**/*.js'
 
@@ -28,5 +25,8 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
 
+      - name: Instalar dependencias
+        run: npm install
+        
       - name: Ejecutar pruebas
         run: npm test
