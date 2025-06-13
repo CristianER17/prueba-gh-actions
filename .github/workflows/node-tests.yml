@@ -26,7 +26,7 @@ jobs:
         run: npx eslint . --fix
 
       - name: Revisar formato con Prettier
-        run: npx prettier --check
+        run: npx prettier --check .
 
 
       - name: Ejecutar pruebas
