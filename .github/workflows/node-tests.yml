@@ -11,12 +11,6 @@ jobs:
             node-version: [16, 18, 20]
 
     steps:
-      - name: Ejecutar ESlint
-        run: npx eslint '**/*.js'
-
-      - name: Revisar formato con Prettier
-        run: npx prettier --check
-
       - name: Clonar repositorio
         uses: actions/checkout@v3
 
@@ -27,6 +21,13 @@ jobs:
 
       - name: Instalar dependencias
         run: npm install
-        
+
+      - name: Ejecutar ESlint
+        run: npx eslint '**/*.js'
+
+      - name: Revisar formato con Prettier
+        run: npx prettier --check
+
+
       - name: Ejecutar pruebas
         run: npm test
