@@ -9,7 +9,7 @@ const pool = new Pool({
     database: process.env.PGDATABASE,
     port: process.env.PGPORT
 });
-app.get('/', async (req,res)=> {
+app.get('/', async (req, res) => {
     try {
         const result = await pool.query('SELECT NOW()');
         res.send(`Hora en PostgreSQL: ${result.rows[0].now}`);
@@ -17,4 +17,4 @@ app.get('/', async (req,res)=> {
         res.status(500).send('Error en la base de datos');
     }
 });
-app.listen(3000, ()=>console.log('Servidor en puerto 3000'));
+app.listen(3000, () => console.log('Servidor en puerto 3000'));
