@@ -6,14 +6,22 @@ jobs:
   test:
     runs-on: ubuntu-latest
 
+    strategy:
+        matrix:
+            node-version: [16, 18, 20]
+
     steps:
+      - name: Ejecutar ESlint
+        run: npx eslint .
+      - name: Revisar formato con Prettier
+        run: npx prettier --check
       - name: Clonar repositorio
         uses: actions/checkout@v3
 
-      - name: Usar Node.js 18
+      - name: Usar Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: 18
+          node-version: ${{ matrix.node-version }}
 
       - name: Instalar dependencias
         run: npm install
