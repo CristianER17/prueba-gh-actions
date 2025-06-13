@@ -23,7 +23,7 @@ jobs:
         run: npm install
 
       - name: Ejecutar ESlint
-        run: npx eslint '**/*.js'
+        run: npx eslint .
 
       - name: Revisar formato con Prettier
         run: npx prettier --check
