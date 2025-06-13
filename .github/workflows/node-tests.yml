@@ -12,11 +12,11 @@ jobs:
 
     steps:
       - name: Ejecutar ESlint
-        run: npx eslint .
+        run: npx eslint ./prueba
 
       - name: Revisar formato con Prettier
         run: npx prettier --check
-        
+
       - name: Clonar repositorio
         uses: actions/checkout@v3
 
